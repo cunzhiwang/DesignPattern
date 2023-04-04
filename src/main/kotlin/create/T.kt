@@ -1,0 +1,4 @@
+package create
+
+class T {
+}

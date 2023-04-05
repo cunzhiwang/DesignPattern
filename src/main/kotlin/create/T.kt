@@ -1,4 +1,0 @@
-package create
-
-class T {
-}

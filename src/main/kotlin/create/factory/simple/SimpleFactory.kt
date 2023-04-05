@@ -7,10 +7,10 @@ class SimpleFactory {
 
     companion object {
         fun makeProduct(kind: Int): IProduct? {
-            var product: IProduct? =null
+            var product: IProduct? = null
             when (kind) {
-                0 -> product=ConcreteProductA()
-                1 -> product=ConcreteProductB()
+                Const.productA -> product = ConcreteProductA()
+                Const.productB -> product = ConcreteProductB()
             }
             return product
         }

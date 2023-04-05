@@ -5,6 +5,6 @@ package create.factory.simple
  */
 class ConcreteProductB : IProduct {
     override fun doSomeThing() {
-        println("这是产品")
+        println("这是产品B")
     }
 }

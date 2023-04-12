@@ -1,65 +1,18 @@
 # DesignPattern
-用kotlin写23种设计模式
+用kotlin写23种设计模式，设计模式其实是一门艺术。设计模式源于生活，不要为了套用设计模式而用设计模式。设计模式其实是经验之谈，千万不要死记硬背，生搬硬套。
 
 # DesignPattern
 设计模式（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。
 
 设计模式分为三种类型，共23种：
 
- - **创建型模式**：[单例模式](https://github.com/youlookwhat/DesignPattern#3-单例设计模式)、[抽象工厂模式](https://github.com/youlookwhat/DesignPattern#2-工厂模式)、[建造者模式](https://github.com/youlookwhat/DesignPattern#11-建造者模式)、[工厂模式](https://github.com/youlookwhat/DesignPattern#2-工厂模式)、[原型模式](https://github.com/youlookwhat/DesignPattern#12-原型模式)。
+ - **创建型模式**：[单例模式](https://github.com/cunzhiwang/DesignPattern单例设计模式)、[抽象工厂模式](https://github.com/cunzhiwang/DesignPattern工厂方法模式)、[建造者模式](https://github.com/cunzhiwang/DesignPattern建造者模式)、[工厂方法模式](https://github.com/cunzhiwang/DesignPattern工厂模式)、[原型模式](https://github.com/cunzhiwang/DesignPattern原型模式)。
  - **结构型模式**：[适配器模式](https://github.com/youlookwhat/DesignPattern#5-适配器模式)、[桥接模式](https://github.com/youlookwhat/DesignPattern#15-桥接模式)、[装饰模式](https://github.com/youlookwhat/DesignPattern#7-装饰者模式)、[组合模式](https://github.com/youlookwhat/DesignPattern#16-组合模式)、[外观模式](https://github.com/youlookwhat/DesignPattern#8-外观模式)、[享元模式](https://github.com/youlookwhat/DesignPattern#13-享元模式)、[代理模式](https://github.com/youlookwhat/DesignPattern#14-代理模式)。
  - **行为型模式**：[模版方法模式](https://github.com/youlookwhat/DesignPattern#9-模板方法模式)、[命令模式](https://github.com/youlookwhat/DesignPattern#6-命令模式)、[迭代器模式](https://github.com/youlookwhat/DesignPattern#17-迭代器模式)、[观察者模式](https://github.com/youlookwhat/DesignPattern#1-观察者模式)、[中介者模式](https://github.com/youlookwhat/DesignPattern#18-中介者模式)、[备忘录模式](https://github.com/youlookwhat/DesignPattern#19-备忘录模式)、[解释器模式](https://github.com/youlookwhat/DesignPattern#20-解释器模式)、[状态模式](https://github.com/youlookwhat/DesignPattern#10-状态模式)、[策略模式](https://github.com/youlookwhat/DesignPattern#4-策略模式)、[责任链模式](https://github.com/youlookwhat/DesignPattern#21-责任链模式)、[访问者模式](https://github.com/youlookwhat/DesignPattern#22-访问者模式)。
 
-> 参照Hongyang、菜鸟教程等处文章所写。如有错误欢迎指正，如有侵权，请联系我删除。
+> 参照《设计模式就该这么学：基于经典框架源码和真实业务场景》。如有错误欢迎指正，如有侵权，请联系我删除，只是本人学习用。
 
 ----
-
-
-## Blog Catalogue：
-
- - 1.[ 设计模式 观察者模式(Observer Pattern) 以微信公众服务为例](http://blog.csdn.net/lmj623565791/article/details/24179699)
-
- - 2.[ 设计模式 工厂模式(Factory Pattern) 从卖肉夹馍说起](http://blog.csdn.net/lmj623565791/article/details/24460585)
-
- - 3.[ 设计模式 单例设计模式(Singleton Pattern) 完全解析](http://blog.csdn.net/dmk877/article/details/50311791)
-
- - 4.[ 设计模式 策略模式(Strategy Pattern) 以角色游戏为背景](http://blog.csdn.net/lmj623565791/article/details/24116745)
-
- - 5.[ 设计模式 适配器模式(Adapter Pattern) 以手机充电器为例](http://blog.csdn.net/lmj623565791/article/details/25833393)
-
- - 6.[ 设计模式 命令模式(Command Pattern) 管理智能家电](http://blog.csdn.net/lmj623565791/article/details/24602057)
-
- - 7.[ 设计模式 装饰者模式(Decorator Pattern) 带你重回传奇世界](http://blog.csdn.net/lmj623565791/article/details/24269409)
-
- - 8.[ 设计模式 外观模式(Facade Pattern) 一键电影模式](http://blog.csdn.net/lmj623565791/article/details/25837275)
-
- - 9.[ 设计模式 模版方法模式(Template Method Pattern) 展现程序员的一天](http://blog.csdn.net/lmj623565791/article/details/26276093)
-
- - 10.[ 设计模式 状态模式(State Pattern) 以自动售货机为例](http://blog.csdn.net/lmj623565791/article/details/26350617)
- 
- - 11.[ 设计模式 建造者模式(Builder Pattern) 以造汽车买汽车为例](https://wiki.jikexueyuan.com/project/java-design-pattern/builder-pattern.html)
-
- - 12.[ 设计模式 原型模式(Prototype Pattern) 以获取多种形状为例](https://www.runoob.com/design-pattern/prototype-pattern.html)
-
- - 13.[ 设计模式 享元模式(Flyweight Pattern) 以随机获取多种形状为例](https://www.runoob.com/design-pattern/flyweight-pattern.html)
-
- - 14.[ 设计模式 代理模式(Proxy Pattern) 以获取磁盘中的图片为例](https://www.runoob.com/design-pattern/proxy-pattern.html)
-
- - 15.[ 设计模式 桥接模式(Bridge Pattern) 以画不同颜色的圆为例](https://www.runoob.com/design-pattern/bridge-pattern.html)
-
- - 16.[ 设计模式 组合模式(Composite Pattern) 以创建和打印员工的层次结构为例](https://www.runoob.com/design-pattern/composite-pattern.html)
-
- - 17.[ 设计模式 迭代器模式(Iterator Pattern) 以使用迭代器打印名字为例](https://www.runoob.com/design-pattern/iterator-pattern.html)
-
- - 18.[ 设计模式 中介者模式(Mediator Pattern) 以公共聊天室为例](https://www.runoob.com/design-pattern/mediator-pattern.html)
-
- - 19.[ 设计模式 备忘录模式(Memento Pattern) 以使用备忘录为例](https://www.runoob.com/design-pattern/memento-pattern.html)
-
- - 20.[ 设计模式 解释器模式(Interpreter Pattern) 以解释一句话为例](https://www.runoob.com/design-pattern/interpreter-pattern.html)
-
- - 21.[ 设计模式 责任链模式(Chain of Responsibility Pattern) 以Android Studio中打印日志为例](https://www.runoob.com/design-pattern/chain-of-responsibility-pattern.html)
-
- - 22.[ 设计模式 访问者模式(Visitor Pattern) 以显示计算机的组成部分为例](https://www.runoob.com/design-pattern/visitor-pattern.html)
 
 
 ## Source Code
@@ -86,9 +39,6 @@
 > - [Visitor](https://github.com/youlookwhat/DesignPattern/tree/master/app/src/main/java/com/example/jingbin/designpattern/visitor)
 
 ## Project Picture
-
-![](https://raw.githubusercontent.com/youlookwhat/DesignPattern/master/image/ds1.png)
-![](https://raw.githubusercontent.com/youlookwhat/DesignPattern/master/image/ds2.png)
 
 ## Pattern Analysis
 ### 1. 观察者模式
@@ -173,13 +123,21 @@
 ### 2. 工厂模式
 简单列一下这个模式的家族：
 
-- **1、静态工厂模式**
 
-	- 这个最常见了，项目中的辅助类，TextUtil.isEmpty等，类+静态方法。
 
-- **2、简单工厂模式（店里买肉夹馍）**
-	- 定义：通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。
-	- 根据类型直接创建肉夹馍：[SimpleRoujiaMoFactory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/jdgc/SimpleRoujiaMoFactory.java)
+- **1、简单工厂模式（店里买肉夹馍）**
+	- 定义：简单工厂模式又叫做静态工厂方法模式，简单来说，简单工厂模式有一个具体的工厂类，可以生成多个不同的产品，属于创建型设计模式。
+	- 应用场景：对于产品种类相对较少的情况，考虑使用简单工厂模式可以方便地创建所需产品
+    - 类图：
+
+```mermaid
+
+classDiagram
+    class 动物
+    交通工具 <|-- 小汽车
+```
+​
+[SimpleRoujiaMoFactory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/jdgc/SimpleRoujiaMoFactory.java)
 	
 	```java
 	public RoujiaMo creatRoujiaMo(String type) {
@@ -202,7 +160,7 @@
     }
 	```
 
-- **3、工厂方法模式（开分店）**
+- **2、工厂方法模式（开分店）**
 	-  定义：定义一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法模式把类实例化的过程推迟到子类。
 	-  对比定义：
   	 - 1、定义了创建对象的一个接口：public abstract RouJiaMo sellRoujiaMo(String type);

@@ -64,7 +64,7 @@
 	 */
 	public void notifyObservers();
 	```
- 
+
  - 3D服务号的实现类：[ObjectFor3D.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/classs/ObjectFor3D.java)
 
 	```java
@@ -93,7 +93,7 @@
         notifyObservers();
     }
 	```
- 
+
  - 所有观察者需要实现此接口:[Observer.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/observer/interfaces/Observer.java)
 
 	```java
@@ -125,52 +125,75 @@
 
 
 
-- **1、简单工厂模式（店里买肉夹馍）**
+- **1、简单工厂模式**
 	- 定义：简单工厂模式又叫做静态工厂方法模式，简单来说，简单工厂模式有一个具体的工厂类，可以生成多个不同的产品，属于创建型设计模式。
 	- 应用场景：对于产品种类相对较少的情况，考虑使用简单工厂模式可以方便地创建所需产品
     - 类图：
+``` mermaid
+    classDiagram
+    IProduct <|.. ConcreteProductA
+    IProduct <|.. ConcreteProductB
+    SimpleFactory ..>ConcreteProductA:create
+    SimpleFactory ..>ConcreteProductB:create
+    Client ..>SimpleFactory:create
+    calss IProduct
+    <<interface>> IProduct
+    IProduct: +dosomeThing() void
+    class ConcreteProductA{
+        +dosomeThing() void
+    }
+    class ConcreteProductB{
+         +dosomeThing() void
+    }
+    class SimpleFactory{
+        +makeProduct(int) IProduct
+    }
+     class Client{
+        +main(int) void
+    }
+    
 
-```mermaid
-
-classDiagram
-    class 动物
-    交通工具 <|-- 小汽车
 ```
-​
+
 [SimpleRoujiaMoFactory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/jdgc/SimpleRoujiaMoFactory.java)
 	
-	```java
-	public RoujiaMo creatRoujiaMo(String type) {
-        RoujiaMo roujiaMo = null;
-        switch (type) {
-            case "Suan":
-                roujiaMo = new ZSuanRoujiaMo();
-                break;
-            case "La":
-                roujiaMo = new ZLaRoujiaMo();
-                break;
-            case "Tian":
-                roujiaMo = new ZTianRoujiaMo();
-                break;
-            default:// 默认为酸肉夹馍
-                roujiaMo = new ZSuanRoujiaMo();
-                break;
-        }
-        return roujiaMo;
-    }
-	```
 
-- **2、工厂方法模式（开分店）**
+~~~java
+```
+public RoujiaMo creatRoujiaMo(String type) {
+    RoujiaMo roujiaMo = null;
+    switch (type) {
+        case "Suan":
+            roujiaMo = new ZSuanRoujiaMo();
+            break;
+        case "La":
+            roujiaMo = new ZLaRoujiaMo();
+            break;
+        case "Tian":
+            roujiaMo = new ZTianRoujiaMo();
+            break;
+        default:// 默认为酸肉夹馍
+            roujiaMo = new ZSuanRoujiaMo();
+            break;
+    }
+    return roujiaMo;
+}
+```
+~~~
+
+- **2、工厂方法模式**
+	
 	-  定义：定义一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法模式把类实例化的过程推迟到子类。
-	-  对比定义：
+  -  对比定义：
   	 - 1、定义了创建对象的一个接口：public abstract RouJiaMo sellRoujiaMo(String type);
  	 - 2、由子类决定实例化的类，可以看到我们的馍是子类生成的。
  - 提供创建肉夹馍店抽象方法：[RoujiaMoStore.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/RoujiaMoStore.java)
 
 	 ```java
+
  	public abstract RoujiaMo sellRoujiaMo(String type);
-	 ```
- 
+ 	 ```
+
  - 具体实现抽象方法：[XianRoujiaMoStore.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/XianRoujiaMoStore.java)
  - 分店依旧使用简单工厂模式：[XianSimpleRoujiaMoFactory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/gcff/XianSimpleRoujiaMoFactory.java)
 
@@ -182,7 +205,7 @@ classDiagram
 	 - 创建用于提供原料的接口工厂：[RoujiaMoYLFactory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/RoujiaMoYLFactory.java)
 	 - 各自分店实现接口，完成原料提供：[XianRoujiaMoYLFoctory.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/XianRoujiaMoYLFoctory.java)
 	 - 准备时，使用官方的原料：[RoujiaMo.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/factory/cxgc/RoujiaMo.java)
-	 
+	
 	 ```java
 	 /**
      * 准备工作
@@ -196,7 +219,7 @@ classDiagram
 
 ### 3. 单例设计模式
 > 单例模式主要是为了避免因为创建了多个实例造成资源的浪费，且多个实例由于多次调用容易导致结果出现错误，而**使用单例模式能够保证整个应用中有且只有一个实例**。
- 
+
  - 定义：只需要三步就可以保证对象的唯一性
    - (1) 不允许其他程序用new对象
    - (2) 在该类中创建对象
@@ -240,7 +263,7 @@ classDiagram
 	 - 2、多用组合，少用继承（我们使用组合的方式，为客户设置了算法）
 	 - 3、针对接口编程，不针对实现（对于Role类的设计完全的针对角色，和技能的实现没有关系）
  - 最后测试：创建角色：
- 
+
  ```java
  RoleA roleA = new RoleA("---A");
  roleA.setiDisplayBehavior(new DisplayYZ())
@@ -279,15 +302,15 @@ classDiagram
  	- 家电实现该接口：[DoorOpenCommand.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/DoorOpenCommand.java)
  - 3、遥控器：[ControlPanel.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/ControlPanel.java)
  - 4、定义一个命令，可以干一系列的事情：[QuickCommand.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/QuickCommand.java)
-  
+
   ```java
   QuickCommand quickCloseCommand = new QuickCommand(new Command[]{new LightOffCommand(light), new ComputerOffCommand(computer), new DoorCloseCommand(door)});
   controlPanel.setCommands(6, quickOpenCommand);
   controlPanel.keyPressed(6);
   ```
-  
+
  - 5、遥控器面板执行：[CommandActivity.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/command/CommandActivity.java)
- 
+
  ```java
  controlPanel.setCommands(0, new DoorOpenCommand(door));// 开门
  controlPanel.keyPressed(0);
@@ -297,7 +320,7 @@ classDiagram
 > 装饰者模式：若要扩展功能，装饰者提供了比集成更有弹性的替代方案，动态地将责任附加到对象上。
 
  - 先简单描述下装饰者模式发挥作用的地方，当我们设计好了一个类，我们需要给这个类添加一些辅助的功能，并且不希望改变这个类的代码，这时候就是装饰者模式大展雄威的时候了。这里还体现了一个**原则：类应该对扩展开放，对修改关闭。**
- 
+
  - 需求：设计游戏的装备系统，基本要求，要可以计算出每种装备在镶嵌了各种宝石后的攻击力和描述：
  - 1、装备的超类：[IEquip.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/decorator/IEquip.java)
  - 2、各个装备的实现类：
@@ -449,7 +472,7 @@ classDiagram
  - 对应状态的接口实现类：
  	- eg: 中奖状态：[WinnerState.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/WinnerState.java)
  	- eg: 售卖状态：[SoldState.java](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/state/better/SoldState.java)
- 		
+
 - 改进后的售货机测试：
 	
 	```java
@@ -475,7 +498,7 @@ classDiagram
 	    public abstract Product getProduct();
 	}
 	```
- 
+
 - 建造者对应实现类：[ConcreteBuilder](https://github.com/youlookwhat/DesignPattern/blob/master/app/src/main/java/com/example/jingbin/designpattern/builder/ConcreteBuilder.java)
 
 	```java
@@ -886,23 +909,23 @@ classDiagram
 
 	```java
     final Employee ceo = new Employee("John", "CEO", 30000);
-
+	
     Employee headSales = new Employee("Robert", "Head sales", 20000);
-
+	
     Employee headMarketing = new Employee("Michel", "Head Marketing", 20000);
-
+	
     Employee clerk1 = new Employee("Laura", "Marketing", 10000);
     Employee clerk2 = new Employee("Bob", "Marketing", 10000);
-
+	
     Employee salesExecutive1 = new Employee("Richard", "Sales", 10000);
     Employee salesExecutive2 = new Employee("Rob", "Sales", 10000);
-
+	
     ceo.add(headSales);
     ceo.add(headMarketing);
-
+	
     headSales.add(salesExecutive1);
     headSales.add(salesExecutive2);
-
+	
     headMarketing.add(clerk1);
     headMarketing.add(clerk2);
     
@@ -927,7 +950,7 @@ classDiagram
  - **主要解决**：不同的方式来遍历整个整合对象。
 
 以使用迭代器打印名字为例，总共分三步：
- 
+
  - 1、创建接口:
 
 	```java
@@ -1121,34 +1144,34 @@ classDiagram
 	    }
 	}
 	```
- 
+
  - 4、使用 CareTaker 和 Originator 对象。
 
 	```java
    // 管理者
     CareTaker careTaker = new CareTaker();
-
+	
     Originator originator = new Originator();
     originator.setState("State #1");
     originator.setState("State #2");
-
+	
     // 保存状态
     careTaker.add(originator.setSateToMemento());
-
+	
     originator.setState("State #3");
-
+	
     // 保存状态
     careTaker.add(originator.setSateToMemento());
-
+	
     originator.setState("State #4");
-
+	
     Log.e("---", "Current State: " + originator.getState());
     // 得到保存的状态
     String fromMemento1 = originator.getStateFromMemento(careTaker.get(0));
     Log.e("---", "First Saved State: " + fromMemento1);
     String fromMemento2 = originator.getStateFromMemento(careTaker.get(1));
     Log.e("---", "Second Saved State: " + fromMemento2);
-
+	
     /*
      * /---: Current State: State #4
      * /---: First Saved State: State #2
@@ -1237,7 +1260,7 @@ classDiagram
         TerminalExpression youlookwhat = new TerminalExpression("youlookwhat");
         return new OrExpression(jingbin, youlookwhat);
     }
-
+	
     /**
      * 规则：Julie 是一个已婚的女性
      */
@@ -1246,15 +1269,15 @@ classDiagram
         TerminalExpression married = new TerminalExpression("Married");
         return new AndExpression(julie, married);
     }
-
+	
 	Expression maleExpression = getMaleExpression();
 	// jingbin is male: true
 	Log.e("---", "jingbin is male: " + maleExpression.interpreter("jingbin"));
-
+	
     Expression womanExpression = getMarriedWomanExpression();
     // Julie is married woman: true
     Log.e("---", "Julie is married woman: " + womanExpression.interpreter("Married Julie"));
-
+	
 	```
 
 
@@ -1361,12 +1384,12 @@ classDiagram
     // ---: File::Logger  this is a debug level information.
     // ---: Standard Console::Logger  this is a debug level information.
     logger.logMessage(AbstractLogger.DEBUG, "this is a debug level information.");
-
+	
     // ---: Error Console::Logger  this is a error level information.
     // ---: File::Logger  this is a error level information.
     // ---: Standard Console::Logger  this is a error level information.
     logger.logMessage(AbstractLogger.ERROR, "this is a error level information.");
-
+	
 	```
 
 ### 22. 访问者模式

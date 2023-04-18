@@ -1,4 +1,4 @@
-package create.factory.simple
+package create.factory.abstract_simple
 
 /**
  * 具体产品（ConcreteProduct）：是简单工厂模式的创建目标

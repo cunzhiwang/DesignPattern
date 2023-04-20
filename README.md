@@ -149,7 +149,7 @@
         +makeProduct(int) IProduct
     }
      class Client{
-        +main(int) void
+        +script.main(int) void
     }
     
 

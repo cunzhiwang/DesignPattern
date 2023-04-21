@@ -1,4 +1,4 @@
-package stract.composite
+package design.stract.composite
 
 /**
  * 树枝节点

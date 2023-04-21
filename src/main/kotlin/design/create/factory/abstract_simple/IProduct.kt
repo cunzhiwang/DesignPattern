@@ -1,4 +1,4 @@
-package create.factory.abstract_simple
+package design.create.factory.abstract_simple
 
 /**
  * 抽象产品（IProduct）：是简单工厂创建的所有对象的父类，负责描述所有实例共有的公共接口

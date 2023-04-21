@@ -1,4 +1,4 @@
-package stract.proxy
+package design.stract.proxy
 
 /**
  * 真实主题类（被代理类）

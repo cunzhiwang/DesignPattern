@@ -1,4 +1,4 @@
-package stract.proxy
+package design.stract.proxy
 
 class Proxy constructor(subject: ISubject) : ISubject {
     var subject: ISubject

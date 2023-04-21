@@ -1,4 +1,4 @@
-package stract.proxy
+package design.stract.proxy
 
 fun main() {
     val realSubject = RealSubject()

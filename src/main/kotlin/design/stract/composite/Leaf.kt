@@ -1,4 +1,4 @@
-package stract.composite
+package design.stract.composite
 
 class Leaf(name: String) : Component(name) {
     override fun operation(): String {

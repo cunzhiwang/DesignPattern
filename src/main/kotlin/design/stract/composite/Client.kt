@@ -1,4 +1,4 @@
-package stract.composite
+package design.stract.composite
 
 fun main() {
     val root = Composite("根节点")

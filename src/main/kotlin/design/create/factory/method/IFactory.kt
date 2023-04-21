@@ -1,4 +1,4 @@
-package create.factory.method
+package design.create.factory.method
 
 /**
  * 抽象工厂

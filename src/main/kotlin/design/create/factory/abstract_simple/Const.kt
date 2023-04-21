@@ -1,4 +1,4 @@
-package create.factory.abstract_simple
+package design.create.factory.abstract_simple
 
 class Const {
     companion object{

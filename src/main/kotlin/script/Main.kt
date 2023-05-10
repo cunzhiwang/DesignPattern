@@ -3,7 +3,7 @@ package script
 import java.io.File
 fun main(args: Array<String>) {
     // 指定文件夹路径
-    val folderPath = "D:\\UGit\\icm\\icm-server\\src\\main\\resources\\mapper"
+    val folderPath = ""
 
 // 指定要删除的字符
     val charToRemove = "ODSERPDATA."

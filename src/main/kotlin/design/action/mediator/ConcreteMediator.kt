@@ -7,12 +7,12 @@ class ConcreteMediator : Mediator {
     private lateinit var colleagueA: ConcreteColleagueA
     private lateinit var colleagueB: ConcreteColleagueB
 
-    fun setColleagueA(colleague1: ConcreteColleagueA) {
-        this.colleagueA = colleague1
+    fun setColleagueA(colleagueA: ConcreteColleagueA) {
+        this.colleagueA = colleagueA
     }
 
-    fun setColleagueB(colleague2: ConcreteColleagueB) {
-        this.colleagueB = colleague2
+    fun setColleagueB(colleagueB: ConcreteColleagueB) {
+        this.colleagueB = colleagueB
     }
 
     override fun notify(sender: Colleague, event: String) {
